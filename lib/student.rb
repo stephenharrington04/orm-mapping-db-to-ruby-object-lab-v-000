@@ -10,14 +10,15 @@ class Student
   end
 
   def self.all
-    
+
   end
 
   def self.find_by_name(name)
     sql = <<-SQL
-      SELECT * FROM students;
+      SELECT * FROM students WHERE students.name = ?;
     SQL
-    
+
+    DB[:conn].execute(sql, name)
   end
 
   def save
