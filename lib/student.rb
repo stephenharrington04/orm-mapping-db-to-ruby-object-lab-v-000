@@ -75,6 +75,8 @@ class Student
       FROM students
       WHERE students.grade < ?
     SQL
+
+    DB[:conn].execute(sql, 12)
   end
 
 
